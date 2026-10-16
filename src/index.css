@@ -1,0 +1,147 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("./assets/static/PlusJakartaSans-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("./assets/static/PlusJakartaSans-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: #000;
+  --color-lime: hsl(61, 70%, 52%);
+  --color-lime-alpha1: hsl(61 70% 52% / 0.1);
+  --color-lime-alpha5: hsl(61 70% 52% / 0.5);
+  --color-red: hsl(4, 69%, 50%);
+  --color-slate-100: hsl(202, 86%, 94%);
+  --color-slate-300: hsl(203, 41%, 72%);
+  --color-slate-500: hsl(200, 26%, 54%);
+  --color-slate-700: hsl(200, 24%, 40%);
+  --color-slate-900: hsl(202, 55%, 16%);
+
+  --spacing: 0.25rem;
+}
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+}
+
+img,
+picture,
+svg {
+  block-size: auto;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+ul,
+ol,
+menu {
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+  line-height: normal;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100svh;
+  line-height: 1.5;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1rem;
+  background-color: var(--color-slate-100);
+  color: var(--color-white);
+
+  @media (min-width: 48rem) {
+    display: grid;
+    place-items: center;
+  }
+}
+
+/* layout */
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+}

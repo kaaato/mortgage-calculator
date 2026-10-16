@@ -1,0 +1,222 @@
+/* typography */
+.pageTitle {
+  color: var(--color-slate-900);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.resetBtn {
+  color: var(--color-slate-700);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.formGroup,
+.radioGroup {
+  color: var(--color-slate-700);
+}
+
+.textField {
+  color: var(--color-slate-900);
+  font-weight: 700;
+}
+
+.fieldsetTitle {
+  color: var(--color-slate-700)
+}
+
+.radioLabel {
+  color: var(--color-slate-900);
+}
+
+.submitBtn {
+  color: var(--color-slate-900);
+  font-size: 1.125rem;
+  font-weight: 700;
+  background-color: var(--color-lime);
+}
+
+.errorText {
+  font-size: 0.875rem;
+  color: var(--color-red);
+}
+
+/* layout */
+.border {
+  border: 1px solid;
+  border-radius: calc(var(--spacing) * 1);
+  overflow: hidden;
+}
+
+.form {
+  width: 100%;
+  padding-block: calc(var(--spacing) * 8);
+  padding-inline: calc(var(--spacing) * 6);
+  gap: calc(var(--spacing) * 6);
+
+  @media (min-width: 48rem) {
+    padding: calc(var(--spacing) * 10);
+  }
+}
+
+.titleHeader {
+  flex-direction: column;
+  gap: calc(var(--spacing) * 3);
+
+  @media (min-width: 48rem) {
+    flex-direction: row;
+  }
+}
+
+.resetBtn {
+  margin-right: auto;
+
+  @media (min-width: 48rem) {
+    margin-right: inherit;
+    margin-left: auto;
+  }
+}
+
+.formGroup {
+  gap: calc(var(--spacing) * 3);
+}
+
+.fieldGroupContainer {
+  grid-template-columns: 1fr;
+  gap: calc(var(--spacing) * 6);
+  
+  @media (min-width: 48rem) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.textFieldGroupLeft {
+  grid-template-columns: auto 1fr;
+  &:has(.textField:focus-visible) {
+    outline: auto;
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+}
+
+.textFieldGroupRight {
+  grid-template-columns: 1fr auto;
+  &:has(.textField:focus-visible) {
+    outline: auto;
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+}
+
+
+.textField,
+.textLabel,
+.radioLabel {
+  padding-block: calc(var(--spacing) * 2.5);
+  padding-inline: calc(var(--spacing) * 4);
+
+  @media (min-width: 48rem) {
+    padding-block: calc(var(--spacing) * 3);
+  }
+}
+
+.textField {
+  min-width: 0;
+  cursor: pointer;
+  border: 0;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.textLabel {
+  background-color: var(--color-slate-100);
+}
+
+.radioGroup {
+  &:hover {
+    border-color: var(--color-lime);
+  }
+
+  &:has(input[type="radio"]:checked) {
+    border-color: var(--color-lime);
+    background-color: var(--color-lime-alpha1);
+  }
+}
+
+.radioLabel {
+  grid-template-columns: auto 1fr;
+  gap: calc(var(--spacing) * 4);
+  cursor: pointer;
+}
+
+.radioSet {
+  gap: calc(var(--spacing) * 2);
+  border: 0;
+}
+
+.fieldsetTitle {
+  margin-bottom: calc(var(--spacing) * 3);
+}
+
+.submitBtn {
+  width: 100%;
+  padding-block: calc(var(--spacing) * 4);
+  justify-content: center;
+  gap: calc(var(--spacing) * 4);
+  border-radius: calc(infinity * 1px);
+
+  &:hover {
+    background-color: var(--color-lime-alpha5);
+  }
+  
+  @media (min-width: 48rem) {
+    max-width: 315px;
+  }
+}
+
+/* custom radio */
+.radioField {
+  appearance: none;
+  color: currentColor;
+  width: 1rem;
+  height: 1rem;
+  border: 0.1rem solid currentColor;
+  border-radius: 50%;
+  transform: translateY(0.25rem);
+  display: grid;
+  place-content: center;
+}
+
+.radioField::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background: var(--color-lime);
+}
+
+.radioField:checked {
+  border-color: var(--color-lime);
+}
+
+.radioField:checked:before {
+  transform: scale(1);
+}
+
+.radioField:focus-visible {
+  outline: auto;
+  outline: 0.15rem solid -webkit-focus-ring-color;
+  outline-offset: 0.15rem;
+}
+
+/* error */
+.border:has(+ .errorText) {
+  border-color: var(--color-red);
+}
+
+.border:has(+ .errorText) .textLabel {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
